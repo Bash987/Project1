@@ -1,6 +1,6 @@
 public interface BagInterface <T>
 {
-    public int CurrentSize();
+    public int getCurrentSize();
 
     public boolean isEmpty();
 
@@ -23,8 +23,4 @@ public interface BagInterface <T>
     //public T intersection();
     
     //public T difference();
-}
-
-{
-    
 }
