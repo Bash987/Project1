@@ -1,6 +1,6 @@
 public interface BagInterface <T>
 {
-    public int CurrentSize();
+    public int getCurrentSize();
 
     public boolean isEmpty();
 

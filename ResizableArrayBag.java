@@ -90,7 +90,7 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
     }
 
 
-    public int CurrentSize()
+    public int getCurrentSize()
     {
         return numberOfEntries;
     }
