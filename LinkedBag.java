@@ -86,7 +86,24 @@ public final class LinkedBag <T> implements BagInterface <T>
 		 @return  The number of times anEntry appears in the bag. */
 	public int getFrequencyOf(T anEntry)
    {
-      return 0; // STUB
+      int frequency = 0;
+      int counter = 0;
+      Node currentNode = firstNode;
+
+      while ((counter < numberOfEntries) && (currentNode != null))
+      {
+         if (anEntry.equals(currentNode.data))
+         {
+            frequency++;
+         }
+
+         else
+         {
+            counter++;
+            currentNode = currentNode.next;
+         }
+      }
+      return frequency;
    } // end getFrequencyOf
 	
 	/** Tests whether this bag contains a given entry.
