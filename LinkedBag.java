@@ -345,7 +345,7 @@ public final class LinkedBag <T> implements BagInterface <T>
          }
       }
 
-     return Bag3;
+     return diffBag;
    }
 
 }
