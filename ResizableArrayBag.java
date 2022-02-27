@@ -232,16 +232,6 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
     */
     public BagInterface <T> intersection(BagInterface <T> paramBag)
     {
-       
-    }
-
-
-    /**implelemtation of union method
-        @param paramBag second bag which will be compared to another specified bag
-        @return BagInterface that is the result the differnce of paramBag and another specifed bag
-    */
-    public BagInterface <T> difference(BagInterface <T> paramBag)
-    {
         //sanatize user input
         if (paramBag == null)
         {
@@ -307,6 +297,18 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
         //returns bag3 as intersection of bag1 and bag2
         return diffBag;
     }
+
+
+    /**implelemtation of union method
+        @param paramBag second bag which will be compared to another specified bag
+        @return BagInterface that is the result the differnce of paramBag and another specifed bag
+    */
+    public BagInterface <T> difference(BagInterface <T> paramBag) ;
+    {
+        
+    }
+
+
 }
 
 
