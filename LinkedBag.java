@@ -155,7 +155,7 @@ public final class LinkedBag <T> implements BagInterface <T>
 
 	private class Node
 	{
-	  private T    data; // Entry in bag
+	  private T data; // Entry in bag
 	  private Node next; // Link to next node
 
 		private Node(T dataPortion)
@@ -168,6 +168,27 @@ public final class LinkedBag <T> implements BagInterface <T>
 			data = dataPortion;
 			next = nextNode;	
 		} // end constructor
+
+      private T getData()
+      {
+         return data;
+      }//end get data
+
+      private void setData(T newData)
+      {
+         data = newData;
+      }// end setData
+
+      private Node getNextNode();
+      {
+         return next;
+      }//end getNextNode;
+
+      private void setNextNode(Node nextNode)
+      {
+         next = nextNode;
+      }
+
 	} // end Node
     
    public BagInterface<T> union(BagInterface <T> otherBag)
