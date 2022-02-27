@@ -97,7 +97,10 @@ public final class LinkedBag <T> implements BagInterface <T>
 	/** Removes all entries from this bag. */
 	public void clear()
    {
-      // STUB
+      while (!isEmpty())
+      {
+            remove();
+      }
    } // end clear
 	
 	/** Counts the number of times a given entry appears in this bag.
