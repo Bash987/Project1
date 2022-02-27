@@ -203,6 +203,13 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
     {
 
     }
+
+    /**implelemtation of union method
+        @param paramBag second bag compared with a bag 
+        @return Baginterface which is difference of certain bag and paramBag
+    */
+    public BagInterface <T> difference(BagInterface <T> paramBag)
+    {
 }
 
 
