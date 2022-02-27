@@ -200,15 +200,15 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
         @return Baginterface which is union of a specified bag and paramBag
     */
     public BagInterface <T> union(BagInterface <T> paramBag) 
-    {
-        BagInterface<T> unionBag = new ResizableArrayBag<>();
-        
+    { 
         if (paramBag == null)
         {
             {
                 throw new IllegalStateException("Bag 2 is null");
             }
         }
+
+        BagInterface<T> unionBag = new ResizableArrayBag<>();
 
         //add info from bag 1 into bag3 
         for(int i = 0; i < this.getCurrentSize(); i++)
