@@ -236,6 +236,9 @@ public final class LinkedBag <T> implements BagInterface <T>
       //prepare data which will be returned
       BagInterface<T> intersectBag = new LinkedBag<>();
 
+      //create temporary bag to house what has already been put into bag3
+      BagInterface<T> tempBag = new LinkedBag<>();
+
       //prepare array to use in loops
       T[] bag = this.toArray();
 
@@ -246,7 +249,7 @@ public final class LinkedBag <T> implements BagInterface <T>
       //gets frequency of a certain item in bag1 and then checks for that in bag2
       for(int i = 0; i < this.getCurrentSize(); i++) //how to stop this loop from looking at same item in different index? contains???
       {
-         if (intersectBag.contains(bag[i]))
+         if (tempBag.contains(bag[i]))
              continue;
 
          bagFreq1 = getFrequencyOf(bag[i]); 
@@ -270,6 +273,8 @@ public final class LinkedBag <T> implements BagInterface <T>
             {
                intersectBag.add(bag[i]);
             }
+
+            tempBag.add(bag[i]);
          }
 
          else if (bagFreq1 < bagFreq2 && bagFreq1 != 0)
@@ -278,6 +283,7 @@ public final class LinkedBag <T> implements BagInterface <T>
             {
                intersectBag.add(bag[i]);
             }
+            tempBag.add(bag[i]);
          }
 
       }
@@ -335,6 +341,7 @@ public final class LinkedBag <T> implements BagInterface <T>
                Bag3.add(bag1[i]);
             }
 
+            tempBag.add(bag[i]);
          }
       }
 
