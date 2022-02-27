@@ -213,7 +213,7 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
         //add info from bag 1 into bag3 
         for(int i = 0;i < this.getCurrentSize(); i++)
         {
-            newBag.add(this.bag[i]);
+            unionBag.add(this.bag[i]);
         }
 
         //add item from bag2 to bag3
