@@ -72,7 +72,15 @@ public final class LinkedBag <T> implements BagInterface <T>
        @return  True if the removal was successful, or false otherwise. */
    public boolean remove(T anEntry)
    {
-      return false; // STUB
+      T result = null;
+
+      if (firstNode != null)
+      {
+          result = firstNode.data;
+          firstNode = firstNode.next;
+          numberOfEntries--;
+      }
+      return result;
    } // end remove
 	
 	/** Removes all entries from this bag. */
