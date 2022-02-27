@@ -230,9 +230,72 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
         @param paramBag second bag gets merged with first bag 
         @return Baginterface which is union of a specified bag and paramBag
     */
-    public BagInterface <T> intersection(BagInterface <T> otherBag)
+    public BagInterface <T> intersection(BagInterface <T> paramBag)
     {
+        //sanatize user input
+        if (paramBag == null)
+        {
+            {
+                throw new IllegalStateException("Bag 2 is null we cannot use a null bag in this method");
+            }
+        }
 
+        //prepare data which will be returned
+        BagInterface<T> diffBag = new ResizableArrayBag<>();
+
+        //making an bag to hold items we have already checked for
+        BagInterface<T> tempBag = new ResizableArrayBag<>();
+
+        //declare variables to get freqency of acertain item in the bags
+        int bagFreq1 = 0; //gets frequecy of item in bag 1
+        int bagFreq2 = 0; //gets frequecy of item in bag 2
+
+        //gets frequency of a certain item in bag1 and then checks for that in bag2
+        for(int i = 0; i < this.getCurrentSize(); i++)
+        { 
+            if (tempBag.contains(this.bag[i]))
+                continue;
+            
+            bagFreq1 = getFrequencyOf(this.bag[i]); 
+            
+            //checks to see if item is in bag 2 and if it is, will assign amount of item to bagFreq2
+            if (paramBag.contains(this.bag[i]))
+            {
+                for(int j = 0; j < paramBag.getCurrentSize(); j++)
+                {       
+                    bagFreq2 = paramBag.getFrequencyOf(this.bag[i]);
+                }
+            }
+
+            else
+            {
+                bagFreq2 = 0;
+            }
+
+            //compare to frequency of same item in bag2 and add lowest frequency to bag
+            if (bagFreq1 >= bagFreq2 && bagFreq2 != 0)
+            {
+                for(int k = 0; k < bagFreq2; k++)
+                {
+                    diffBag.add(this.bag[i]);
+                }
+                    
+                tempBag.add(this.bag[i]); //add item to diffBag in to skip repeat value of this.bag[i]
+            }
+
+            else if (bagFreq1 < bagFreq2 && bagFreq1 != 0)
+            {
+                for(int l = 0; l < bagFreq1; l++)
+                {
+                        diffBag.add(this.bag[i]);
+                }
+
+                tempBag.add(this.bag[i]);
+            }
+
+        }
+        //returns bag3 as intersection of bag1 and bag2
+        return diffBag;
     }
 
 
