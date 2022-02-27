@@ -241,7 +241,7 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
         }
 
         //prepare data which will be returned
-        BagInterface<T> diffBag = new ResizableArrayBag<>();
+        BagInterface<T> intersectBag = new ResizableArrayBag<>();
 
         //making an bag to hold items we have already checked for
         BagInterface<T> tempBag = new ResizableArrayBag<>();
@@ -261,10 +261,7 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
             //checks to see if item is in bag 2 and if it is, will assign amount of item to bagFreq2
             if (paramBag.contains(this.bag[i]))
             {
-                for(int j = 0; j < paramBag.getCurrentSize(); j++)
-                {       
-                    bagFreq2 = paramBag.getFrequencyOf(this.bag[i]);
-                }
+                bagFreq2 = paramBag.getFrequencyOf(this.bag[i]);
             }
 
             else
@@ -277,7 +274,7 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
             {
                 for(int k = 0; k < bagFreq2; k++)
                 {
-                    diffBag.add(this.bag[i]);
+                    intersectBag.add(this.bag[i]);
                 }
                     
                 tempBag.add(this.bag[i]); //add item to diffBag in to skip repeat value of this.bag[i]
@@ -287,7 +284,7 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
             {
                 for(int l = 0; l < bagFreq1; l++)
                 {
-                        diffBag.add(this.bag[i]);
+                        intersectBag.add(this.bag[i]);
                 }
 
                 tempBag.add(this.bag[i]);
@@ -295,7 +292,7 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
 
         }
         //returns bag3 as intersection of bag1 and bag2
-        return diffBag;
+        return intersectBag;
     }
 
 
