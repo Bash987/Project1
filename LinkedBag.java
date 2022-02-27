@@ -57,7 +57,6 @@ public final class LinkedBag <T> implements BagInterface <T>
 		return numberOfEntries;
 	} // end getCurrentSize
    
-// STUBS:
 
 	/** Removes one unspecified entry from this bag, if possible.
        @return  Either the removed entry, if the removal
@@ -68,10 +67,11 @@ public final class LinkedBag <T> implements BagInterface <T>
 
       if (firstNode != null)
       {
-          result = firstNode.data;
-          firstNode = firstNode.next;
-          numberOfEntries--;
+         result = firstNode.data;
+         firstNode = firstNode.next;
+         numberOfEntries--;
       }
+
       return result
    } // end remove
    
@@ -85,11 +85,11 @@ public final class LinkedBag <T> implements BagInterface <T>
 
       if (nodeN != null)
       {
-          nodeN.data = firstNode.data;
-          firstNode = firstNode.next;
-          numberOfEntries--;
+         nodeN.data = firstNode.data;
+         firstNode = firstNode.next;
+         numberOfEntries--;
 
-          result = true;
+         result = true;
       }
       return result;
    } // end remove
@@ -99,7 +99,7 @@ public final class LinkedBag <T> implements BagInterface <T>
    {
       while (!isEmpty())
       {
-            remove();
+         remove();
       }
    } // end clear
 	
