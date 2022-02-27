@@ -111,7 +111,24 @@ public final class LinkedBag <T> implements BagInterface <T>
 		 @return  True if the bag contains anEntry, or false otherwise. */
 	public boolean contains(T anEntry)
    {
-      return false; // STUB
+      boolean found = false;
+      Node currentNode = firstNode;
+
+      while (!found && (currentNode != null))
+      {
+         if (anEntry.equals(currentNode.data))
+         {
+            found = true;
+         }
+          
+         else
+         {
+            currentNode = currentNode.next;
+         }
+        
+      }
+        
+      return found;
    } // end contains
 
 	private class Node
