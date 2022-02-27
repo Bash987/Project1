@@ -114,103 +114,103 @@ public final class LinkedBag <T> implements BagInterface <T>
 		} // end constructor
 	} // end Node
     
-    public BagInterface<T> union(BagInterface <T> otherBag)
-    {
-		BagInterface<T> unionBag = new LinkedBag<>() ;
+   public BagInterface<T> union(BagInterface <T> otherBag)
+   {
+	   BagInterface<T> unionBag = new LinkedBag<>() ;
         
-        if (otherBag == null)
-        {
+      if (otherBag == null)
+         {
             {
-                throw new IllegalStateException("Bag 2 is null");
+               throw new IllegalStateException("Bag 2 is null");
             }
-        }
-
-        //make an array for first bag
-        T[] bag1 = this.toArray();
-
-        //add info from bag 1 into bag3 
-        for(int i = 0; i < this.getCurrentSize(); i++)
-        {
-            unionBag.add(bag1[i]);
-        }
-
-        //create an array for second bag
-        T[] bag2 = otherBag.toArray();
-
-        //add items from bag2 to unionBag
-        for (int j = 0; j < otherBag.getCurrentSize(); j++)
-        {
-            unionBag.add(bag2[j]);
-        }
-
-        return unionBag;
-    }
-
-    public BagInterface <T> intersection(BagInterface <T> otherBag)
-    {
-       //sanatize user input
-       if (otherBag == null)
-       {
-           {
-               throw new IllegalStateException("Bag 2 is null we cannot use a null bag in this method");
-           }
-       }
-
-       //prepare data which will be returned
-       BagInterface<T> intersectBag = new LinkedBag<>();
-
-       //prepare array to use in loops
-       T[] bag = this.toArray();
-
-       //declare variables to get freqency of acertain item in the bags
-       int bagFreq1 = 0; //gets frequecy of item in bag 1
-       int bagFreq2 = 0; //gets frequecy of item in bag 2
-
-       //gets frequency of a certain item in bag1 and then checks for that in bag2
-       for(int i = 0; i < this.getCurrentSize(); i++) //how to stop this loop from looking at same item in different index? contains???
-       {
-           if (intersectBag.contains(bag[i]))
-               continue;
-
-            bagFreq1 = getFrequencyOf(bag[i]); 
-           
-            //checks to see if item is in bag 2 and if it is, will assign amount of item to bagFreq2
-            if (inputBag2.contains(bag[i]))
-            {      
-               bagFreq2 = otherBag.getFrequencyOf(bag[i]);
-
-            }
-
-            else
-            {
-               bagFreq2 = 0;
-            }
-
-            //compare to frequency of same item in bag2 and add lowest frequency to bag
-            if (bagFreq1 >= bagFreq2 && bagFreq2 != 0)
-            {
-               for(int k = 0; k < bagFreq2; k++)
-               {
-                  intersectBag.add(bag[i]);
-               }
-            }
-
-            else if (bagFreq1 < bagFreq2 && bagFreq1 != 0)
-            {
-               for(int l = 0; l < bagFreq1; l++)
-               {
-                  intersectBag.add(bag[i]);
-               }
          }
 
-       }
-       //returns bag3 as intersection of bag1 and bag2
-       return intersectBag;
+      //make an array for first bag
+      T[] bag1 = this.toArray();
+
+      //add info from bag 1 into bag3 
+      for(int i = 0; i < this.getCurrentSize(); i++)
+      {
+         unionBag.add(bag1[i]);
+      }
+
+      //create an array for second bag
+      T[] bag2 = otherBag.toArray();
+
+      //add items from bag2 to unionBag
+      for (int j = 0; j < otherBag.getCurrentSize(); j++)
+      {
+         unionBag.add(bag2[j]);
+      }
+
+      return unionBag;
+    }
+
+   public BagInterface <T> intersection(BagInterface <T> otherBag)
+   {
+      //sanatize user input
+      if (otherBag == null)
+      {
+         {
+            throw new IllegalStateException("Bag 2 is null we cannot use a null bag in this method");
+         }
+      }
+
+      //prepare data which will be returned
+      BagInterface<T> intersectBag = new LinkedBag<>();
+
+      //prepare array to use in loops
+      T[] bag = this.toArray();
+
+      //declare variables to get freqency of acertain item in the bags
+      int bagFreq1 = 0; //gets frequecy of item in bag 1
+      int bagFreq2 = 0; //gets frequecy of item in bag 2
+
+      //gets frequency of a certain item in bag1 and then checks for that in bag2
+      for(int i = 0; i < this.getCurrentSize(); i++) //how to stop this loop from looking at same item in different index? contains???
+      {
+         if (intersectBag.contains(bag[i]))
+             continue;
+
+         bagFreq1 = getFrequencyOf(bag[i]); 
+           
+         //checks to see if item is in bag 2 and if it is, will assign amount of item to bagFreq2
+         if (inputBag2.contains(bag[i]))
+         {      
+            bagFreq2 = otherBag.getFrequencyOf(bag[i]);
+
+         }
+
+         else
+         {
+            bagFreq2 = 0;
+         }
+
+         //compare to frequency of same item in bag2 and add lowest frequency to bag
+         if (bagFreq1 >= bagFreq2 && bagFreq2 != 0)
+         {
+            for(int k = 0; k < bagFreq2; k++)
+            {
+               intersectBag.add(bag[i]);
+            }
+         }
+
+         else if (bagFreq1 < bagFreq2 && bagFreq1 != 0)
+         {
+            for(int l = 0; l < bagFreq1; l++)
+            {
+               intersectBag.add(bag[i]);
+            }
+         }
+
+      }
+      //returns bag3 as intersection of bag1 and bag2
+      return intersectBag;
     }
     
-    public BagInterface <T> difference(BagInterface <T> otherBag)
-    {
+   public BagInterface <T> difference(BagInterface <T> otherBag)
+   {
         
-    }
+   }
 
 }
