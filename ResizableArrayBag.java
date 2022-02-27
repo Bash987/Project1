@@ -216,13 +216,10 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
             newBag.add(this.bag[i]);
         }
 
-        //create an array for second bag
-        T[] bag2 = paramBag.toArray();
-
         //add item from bag2 to bag3
         for (int j = 0; j < paramBag.getCurrentSize(); j++)
         {
-            unionBag.add(bag2[j]);
+            unionBag.add(paramBag.bag[j]);
         }
 
         return unionBag;
