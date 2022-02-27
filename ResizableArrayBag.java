@@ -194,6 +194,15 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
 
         return Array;
     }
+
+    /**implelemtation of union method
+        @param paramBag second bag gets merged with first bag 
+        @return Baginterface which is union of bag1 and paramBag
+    */
+    public BagInterface <T> union(BagInterface <T> paramBag) 
+    {
+
+    }
 }
 
 
