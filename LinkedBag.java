@@ -210,7 +210,58 @@ public final class LinkedBag <T> implements BagInterface <T>
     
    public BagInterface <T> difference(BagInterface <T> otherBag)
    {
-        
+      //sanatize user input
+      if (otherBag == null)
+      {
+          {
+              throw new IllegalStateException("Bag 2 is null we cannot use a null bag in this method");
+          }
+      }
+     
+      //prepare data which will be returned
+      BagInterface<T> diffBag = new LinkedBag<>();
+
+      //prepare bag to use in loops
+      BagInterface<T> tempBag = new LinkedBag<>();
+
+      //prepare arryay to use in loops
+      T[] bag1 = this.toArray();
+
+      //declare variables to get freqency of acertain item in the bags
+      int bagFreq1 = 0; //gets frequecy of item in bag 1
+      int bagFreq2 = 0; //gets frequecy of item in bag 2
+
+      //gets frequency of a certain item in bag1 and then checks for that in bag2
+      for(int i = 0; i < this.getCurrentSize(); i++) //how to stop this loop from looking at same item in different index? contains???
+      {
+         if (tempBag.contains(bag1[i]))
+             continue;
+
+         bagFreq1 = getFrequencyOf(bag1[i]); 
+         
+         //checks to see if item is in bag 2 and if it is, will assign amount of item to bagFreq2
+         if (otherBag.contains(bag1[i]))
+         {
+            bagFreq2 = otherBag.getFrequencyOf(bag1[i]);
+         }
+
+         else
+         {
+            bagFreq2 = 0;
+         }
+
+         //compare to frequency of same item in bag2 and add lowest frequency to bag
+         if ((bagFreq1 - bagFreq2) > 0)
+         {
+            for(int k = 0; k < bagFreq2; k++)
+            {
+               Bag3.add(bag1[i]);
+            }
+
+         }
+      }
+
+     return Bag3;
    }
 
 }
