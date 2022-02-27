@@ -72,7 +72,7 @@ public final class LinkedBag <T> implements BagInterface <T>
          numberOfEntries--;
       }
 
-      return result
+      return result;
    } // end remove
    
 	/** Removes one occurrence of a given entry from this bag.
@@ -179,7 +179,7 @@ public final class LinkedBag <T> implements BagInterface <T>
          data = newData;
       }// end setData
 
-      private Node getNextNode();
+      private Node getNextNode()
       {
          return next;
       }//end getNextNode;
@@ -255,7 +255,7 @@ public final class LinkedBag <T> implements BagInterface <T>
          bagFreq1 = getFrequencyOf(bag[i]); 
            
          //checks to see if item is in bag 2 and if it is, will assign amount of item to bagFreq2
-         if (inputBag2.contains(bag[i]))
+         if (otherBag.contains(bag[i]))
          {      
             bagFreq2 = otherBag.getFrequencyOf(bag[i]);
 
@@ -338,10 +338,10 @@ public final class LinkedBag <T> implements BagInterface <T>
          {
             for(int k = 0; k < bagFreq2; k++)
             {
-               Bag3.add(bag1[i]);
+               diffBag.add(bag1[i]);
             }
 
-            tempBag.add(bag[i]);
+            tempBag.add(bag1[i]);
          }
       }
 
