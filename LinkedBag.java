@@ -64,14 +64,6 @@ public final class LinkedBag <T> implements BagInterface <T>
                 was successful, or null. */
 	public T remove()
    {
-      return null; // STUB
-   } // end remove
-   
-	/** Removes one occurrence of a given entry from this bag.
-       @param anEntry  The entry to be removed.
-       @return  True if the removal was successful, or false otherwise. */
-   public boolean remove(T anEntry)
-   {
       T result = null;
 
       if (firstNode != null)
@@ -79,6 +71,25 @@ public final class LinkedBag <T> implements BagInterface <T>
           result = firstNode.data;
           firstNode = firstNode.next;
           numberOfEntries--;
+      }
+      return result
+   } // end remove
+   
+	/** Removes one occurrence of a given entry from this bag.
+       @param anEntry  The entry to be removed.
+       @return  True if the removal was successful, or false otherwise. */
+   public boolean remove(T anEntry)
+   {
+      boolean result = false;
+      Node nodeN = getReferenceTo(anEntry);
+
+      if (nodeN != null)
+      {
+          nodeN.data = firstNode.data;
+          firstNode = firstNode.next;
+          numberOfEntries--;
+
+          result = true;
       }
       return result;
    } // end remove
