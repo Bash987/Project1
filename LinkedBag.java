@@ -93,6 +93,22 @@ public final class LinkedBag <T> implements BagInterface <T>
       }
       return result;
    } // end remove
+
+   private Node getReferenceTo(T anEntry)
+      {
+         boolean found = false;
+         Node currentNode = firstNode;
+         while (!found && (currentNode != null))
+         {
+            if (anEntry.equals(currentNode.getData()))
+            found = true;
+
+            else
+            currentNode = currentNode.getNextNode();
+         } // end while
+     
+      return currentNode;
+      } // end getReferenceTo
 	
 	/** Removes all entries from this bag. */
 	public void clear()
