@@ -197,19 +197,34 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
 
     /**implelemtation of union method
         @param paramBag second bag gets merged with first bag 
-        @return Baginterface which is union of bag1 and paramBag
+        @return Baginterface which is union of a specified bag and paramBag
     */
     public BagInterface <T> union(BagInterface <T> paramBag) 
     {
 
     }
 
+    
     /**implelemtation of union method
-        @param paramBag second bag compared with a bag 
-        @return Baginterface which is difference of certain bag and paramBag
+        @param paramBag second bag gets merged with first bag 
+        @return Baginterface which is union of a specified bag and paramBag
+    */
+    public BagInterface <T> intersection(BagInterface <T> otherBag)
+    {
+
+    }
+
+
+    /**implelemtation of union method
+        @param paramBag second bag which will be compared to another specified bag
+        @return BagInterface that is the result the differnce of paramBag and another specifed bag
     */
     public BagInterface <T> difference(BagInterface <T> paramBag)
     {
+
+    }
+
+
 }
 
 
