@@ -201,7 +201,31 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
     */
     public BagInterface <T> union(BagInterface <T> paramBag) 
     {
+        BagInterface<T> unionBag = new ResizableArrayBag<>();
+        
+        if (paramBag == null)
+        {
+            {
+                throw new IllegalStateException("Bag 2 is null");
+            }
+        }
 
+        //add info from bag 1 into bag3 
+        for(int i = 0;i < this.getCurrentSize(); i++)
+        {
+            newBag.add(this.bag[i]);
+        }
+
+        //create an array for second bag
+        T[] bag2 = paramBag.toArray();
+
+        //add item from bag2 to bag3
+        for (int j = 0; j < paramBag.getCurrentSize(); j++)
+        {
+            unionBag.add(bag2[j]);
+        }
+
+        return unionBag;
     }
 
     
@@ -221,7 +245,7 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
     */
     public BagInterface <T> difference(BagInterface <T> paramBag)
     {
-
+        
     }
 
 
