@@ -331,11 +331,8 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
             
             //checks to see if item is in bag 2 and if it is, will assign amount of item to bagFreq2
             if (diffBag.contains(this.bag[i]))
-            {
-                for(int j = 0; j < inputBag2.getCurrentSize(); j++)
-                {       
-                    bagFreq2 = inputBag2.getFrequencyOf(this.bag[i]);
-                }
+            {      
+                bagFreq2 = inputBag2.getFrequencyOf(this.bag[i]);
             }
 
             else
