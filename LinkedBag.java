@@ -140,7 +140,7 @@ public final class LinkedBag <T> implements BagInterface <T>
         //add items from bag2 to unionBag
         for (int j = 0; j < otherBag.getCurrentSize(); j++)
         {
-            newBag.add(bag2[j]);
+            unionBag.add(bag2[j]);
         }
 
         return unionBag;
