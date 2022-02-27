@@ -116,7 +116,34 @@ public final class LinkedBag <T> implements BagInterface <T>
     
     public BagInterface<T> union(BagInterface <T> otherBag)
     {
+		BagInterface<T> unionBag = new LinkedBag<>() ;
+        
+        if (otherBag == null)
+        {
+            {
+                throw new IllegalStateException("Bag 2 is null");
+            }
+        }
 
+        //make an array for first bag
+        T[] bag1 = this.toArray();
+
+        //add info from bag 1 into bag3 
+        for(int i = 0; i < this.getCurrentSize(); i++)
+        {
+            unionBag.add(bag1[i]);
+        }
+
+        //create an array for second bag
+        T[] bag2 = otherBag.toArray();
+
+        //add items from bag2 to unionBag
+        for (int j = 0; j < otherBag.getCurrentSize(); j++)
+        {
+            newBag.add(bag2[j]);
+        }
+
+        return unionBag;
     }
 
     public BagInterface <T> intersection(BagInterface <T> otherBag)
