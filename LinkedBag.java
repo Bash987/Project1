@@ -209,7 +209,6 @@ public final class LinkedBag <T> implements BagInterface <T>
     
    public BagInterface<T> union(BagInterface <T> otherBag)
    {
-	   BagInterface<T> unionBag = new LinkedBag<>() ;
         
       if (otherBag == null)
          {
@@ -217,6 +216,8 @@ public final class LinkedBag <T> implements BagInterface <T>
                throw new IllegalStateException("Bag 2 is null");
             }
          }
+
+      BagInterface<T> unionBag = new LinkedBag<>();
 
       //make an array for first bag
       T[] bag1 = this.toArray();
