@@ -2,10 +2,10 @@ import java.util.Arrays;
 public class ResizableArrayBag <T> implements BagInterface <T> {
     
     private T[] bag;
-    private static final int Default_Capacity = 25;
+    private static final int DEFAULT_CAPACITY = 25;
     private int numberOfEntries;
     private boolean integrityOk;
-    private static final int Max_Capacity = 1000;
+    private static final int MAX_CAPACITY = 10000;
 
     private void checkIntegrity()
     {
@@ -17,11 +17,11 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
 
     private void checkCapacity(int capacity)
     {
-        if (capacity > Max_Capacity)
+        if (capacity > MAX_CAPACITY)
         {
             throw new IllegalStateException("Attempt to make a bag with" +
                                             " capactity that exceeds maximum capavity of: " 
-                                            + Max_Capacity);
+                                            + MAX_CAPACITY);
         }
     }
 
@@ -34,13 +34,13 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
     
     public ResizableArrayBag()
     {
-        this(Default_Capacity);
+        this(DEFAULT_CAPACITY);
     }
 
 
     public ResizableArrayBag(int capacity)
     {
-        if (capacity <= Max_Capacity)
+        if (capacity <= MAX_CAPACITY)
         {
             numberOfEntries = 0;
 
@@ -194,4 +194,171 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
 
         return Array;
     }
+
+    /**implelemtation of union method
+        @param paramBag second bag gets merged with first bag 
+        @return Baginterface which is union of a specified bag and paramBag
+    */
+    public BagInterface <T> union(BagInterface <T> paramBag) 
+    { 
+        if (paramBag == null)
+        {
+            {
+                throw new IllegalStateException("Bag 2 is null");
+            }
+        }
+
+        BagInterface<T> unionBag = new ResizableArrayBag<>();
+
+        //add info from bag 1 into bag3 
+        for(int i = 0; i < this.getCurrentSize(); i++)
+        {
+            unionBag.add(this.bag[i]);
+        }
+
+        //create a temporary array with parambag's items
+        T[] tempBag = paramBag.toArray();
+
+        //add item from bag2 to bag3
+        for (int j = 0; j < paramBag.getCurrentSize(); j++)
+        {
+            unionBag.add(tempBag[j]);
+        }
+
+        return unionBag;
+    }
+
+    
+    /**implelemtation of union method
+        @param paramBag second bag gets merged with first bag 
+        @return Baginterface which is union of a specified bag and paramBag
+    */
+    public BagInterface <T> intersection(BagInterface <T> paramBag)
+    {
+        //sanatize user input
+        if (paramBag == null)
+        {
+            {
+                throw new IllegalStateException("Bag 2 is null we cannot use a null bag in this method");
+            }
+        }
+
+        //prepare data which will be returned
+        BagInterface<T> intersectBag = new ResizableArrayBag<>();
+
+        //making an bag to hold items we have already checked for
+        BagInterface<T> tempBag = new ResizableArrayBag<>();
+
+        //declare variables to get freqency of acertain item in the bags
+        int bagFreq1 = 0; //gets frequecy of item in bag 1
+        int bagFreq2 = 0; //gets frequecy of item in bag 2
+
+        //gets frequency of a certain item in bag1 and then checks for that in bag2
+        for(int i = 0; i < this.getCurrentSize(); i++)
+        { 
+            if (tempBag.contains(this.bag[i]))
+                continue;
+            
+            bagFreq1 = getFrequencyOf(this.bag[i]); 
+            
+            //checks to see if item is in bag 2 and if it is, will assign amount of item to bagFreq2
+            if (paramBag.contains(this.bag[i]))
+            {
+                bagFreq2 = paramBag.getFrequencyOf(this.bag[i]);
+            }
+
+            else
+            {
+                bagFreq2 = 0;
+            }
+
+            //compare to frequency of same item in bag2 and add lowest frequency to bag
+            if (bagFreq1 >= bagFreq2 && bagFreq2 != 0)
+            {
+                for(int k = 0; k < bagFreq2; k++)
+                {
+                    intersectBag.add(this.bag[i]);
+                }
+                    
+                tempBag.add(this.bag[i]); //add item to diffBag in to skip repeat value of this.bag[i]
+            }
+
+            else if (bagFreq1 < bagFreq2 && bagFreq1 != 0)
+            {
+                for(int l = 0; l < bagFreq1; l++)
+                {
+                        intersectBag.add(this.bag[i]);
+                }
+
+                tempBag.add(this.bag[i]);
+            }
+
+        }
+        //returns bag3 as intersection of bag1 and bag2
+        return intersectBag;
+    }
+
+
+    /**implelemtation of union method
+        @param paramBag second bag which will be compared to another specified bag
+        @return BagInterface that is the result the differnce of paramBag and another specifed bag
+    */
+    public BagInterface <T> difference(BagInterface <T> paramBag)
+    {
+         //sanatize user input
+         if (paramBag == null)
+         {
+             {
+                 throw new IllegalStateException("Bag 2 is null we cannot use a null bag in this method");
+             }
+         }
+        
+        //prepare data which will be returned
+        BagInterface<T> diffBag = new ResizableArrayBag<>();
+
+        //make an bag to hold items we have already checked for
+        BagInterface<T> tempBag = new ResizableArrayBag<>();
+
+        //declare variables to get freqency of acertain item in the bags
+        int bagFreq1 = 0; //gets frequecy of item in bag 1
+        int bagFreq2 = 0; //gets frequecy of item in bag 2
+
+        //gets frequency of a certain item in bag1 and then checks for that in bag2
+        for(int i = 0; i < this.getCurrentSize(); i++) //how to stop this loop from looking at same item in different index? contains???
+        {
+            if (tempBag.contains(this.bag[i]))
+                continue;
+
+           
+            bagFreq1 = getFrequencyOf(this.bag[i]); 
+            
+            //checks to see if item is in bag 2 and if it is, will assign amount of item to bagFreq2
+            if (diffBag.contains(this.bag[i]))
+            {      
+                bagFreq2 = paramBag.getFrequencyOf(this.bag[i]);
+            }
+
+            else
+            {
+                bagFreq2 = 0;
+            }
+
+                //compare to frequency of same item in bag2 and add lowest frequency to bag
+            if ((bagFreq1 - bagFreq2) > 0)
+            {
+                for(int k = 0; k < bagFreq2; k++)
+                {
+                    diffBag.add(this.bag[i]);
+                }
+
+                diffBag.add(this.bag[i]);
+            }
+
+        }
+
+        return diffBag;
+    }
+
 }
+
+

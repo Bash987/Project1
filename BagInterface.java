@@ -18,9 +18,9 @@ public interface BagInterface <T>
 
     public T[] toArray();
     
-    //public T union();
+    public BagInterface<T> union(BagInterface <T> otherBag); // union interface method
 
-    //public T intersection();
+    public BagInterface <T> intersection(BagInterface <T> otherBag); // intersection interface method
     
-    //public T difference();
+    public BagInterface <T> difference(BagInterface <T> otherBag); // difference interface method
 }
