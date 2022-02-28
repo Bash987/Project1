@@ -1,12 +1,11 @@
 /**An interface that describes the operations of a bag of objects. */
-public interface BagInterface<T>
-        {
+public interface BagInterface<T> {
 
         /**Gets the current number of entries in this bag.
-         @return  The integer number of entries currently in the bag. */
+        @return  The integer number of entries currently in the bag. */
     public int getCurrentSize();
     
-    /** Sees whether this bag is empty.
+        /** Sees whether this bag is empty.
         @return  True if the bag is empty, or false if not. */
     public boolean isEmpty();
 
@@ -16,23 +15,23 @@ public interface BagInterface<T>
     public boolean add(T newEntry);
 
         /** Removes one unspecified entry from this bag, if possible.
-            @return  Either the removed entry, if the removal was successful, or null. */  
-            public T remove();
+        @return  Either the removed entry, if the removal was successful, or null. */  
+    public T remove();
             
         /** Removes one occurrence of a given entry from this bag, if possible.
-            @param anEntry  The entry to be removed.
-            @return  True if the removal was successful, or false if not. */
-        public boolean remove(T anEntry);
+        @param anEntry  The entry to be removed.
+        @return  True if the removal was successful, or false if not. */
+    public boolean remove(T anEntry);
 
         /** Removes all entries from this bag. */
     public void clear();
 
-    /**Counts the number of times a given entry appears in this bag.
+        /**Counts the number of times a given entry appears in this bag.
         @param anEntry  The entry to be counted.
         @return  The number of times anEntry appears in the bag. */
     public int getFrequencyOf(T anEntry);
 
-    /** Tests whether this bag contains a given entry.
+        /** Tests whether this bag contains a given entry.
         @param anEntry  The entry to find.
         @return  True if the bag contains anEntry, or false if not. */
     public boolean contains(T anEntry);
