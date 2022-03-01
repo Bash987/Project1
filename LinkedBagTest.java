@@ -2,7 +2,7 @@ public class LinkedBagTest
 {
     public static void main(String[] args)
     {
-        //Tests on a bag that is empty 
+        /** Tests on a bag that is empty */
         System.out.println("Creating an empty bag");
         BagInterface<String> aBag = new LinkedBag<>();
         displayBag(aBag);
@@ -12,7 +12,7 @@ public class LinkedBagTest
         testContains(abag, testStrings1);
         testRemove(aBag, testStrings1);
 
-        //Adding strings
+        /**Adding strings*/
         String[] contentsOfBag = {"A", "D", "B", "A", "C", "A", "D"};
             testAdd(aBag, contentsOfBag);
 
@@ -23,7 +23,7 @@ public class LinkedBagTest
         testFrequency(aBag, testStrings2);
         testContains(aBag, testStrings2);
 
-        //Removing strings
+        /**Removing strings*/
             String[] testStrings3 = {" ", "B", "A", "C", "Z"};
         testRemove(aBag, testStrings3);
 
@@ -37,20 +37,20 @@ public class LinkedBagTest
             System.out.println("testDifference ");
             displayBag(bag1);
     
-        } // end testDifference
+        } /** end testDifference*/
     
         private static void testIntersection(BagInterface<String> aBag, BagInterface<String> bag2){
             bag1.intersection(bag2);
             System.out.println("testIntersection ");
             displayBag(bag1);
-        } // end testIntersection
+        } /** end testIntersection*/
     
         private static void testUnion(BagInterface<String> aBag, BagInterface<String> bag2){
             bag1.union(bag2);
             System.out.println("testUnion ");
             displayBag(bag1);
-        } // end testUnion
+        } /** end testUnion
     
     } // end ResizableArrayBagTest
-    }//end main 
+    }//end main */
 }
