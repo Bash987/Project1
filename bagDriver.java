@@ -4,7 +4,8 @@ public class bagDriver
 {
     public static void main(String[] args)
     {
-
+        
+        /** creating 1 linked bag*/
         System.out.println("Creating an empty bag");
         BagInterface<String> aBag = new LinkedBag<>();
 
@@ -17,6 +18,7 @@ public class bagDriver
         
         System.out.println(Arrays.toString(aBag.toArray()));
 
+         /** creating a second linked bag*/
         System.out.println("Creating an empty bag");
         BagInterface<String> bBag = new LinkedBag<>();
 
@@ -27,6 +29,7 @@ public class bagDriver
 
         System.out.println(Arrays.toString(bBag.toArray())); 
         
+         /** creating an array*/
         System.out.println("Creating an empty bag");
         BagInterface<String> cBag = new ResizableArrayBag<>();
 
@@ -42,7 +45,8 @@ public class bagDriver
         cBag.add("flowers"); 
 
         System.out.println(Arrays.toString(cBag.toArray()));
-
+        
+         /** creating another array bag*/
         System.out.println("Creating an empty bag");
         BagInterface<String> dBag = new ResizableArrayBag<>();
 
@@ -53,6 +57,7 @@ public class bagDriver
 
         System.out.println(aBag.toArray());
         
+         /** testing union between the bags*/
         System.out.println(Arrays.toString(dBag.toArray()));      
         System.out.println("union of bag a and bag b");
         System.out.println(Arrays.toString(aBag.union(bBag).toArray()));        
@@ -63,22 +68,24 @@ public class bagDriver
         System.out.println("union of bag d and bag a");
         System.out.println(Arrays.toString(dBag.union(aBag).toArray()));
 
-        System.out.println("union of bag a and bag b");
+         /** testing intersection between the bags*/
+        System.out.println("intersection of bag a and bag b");
         System.out.println(Arrays.toString(aBag.intersection(bBag).toArray()));        
-        System.out.println("union of bag b and bag c");
+        System.out.println("intersection of bag b and bag c");
         System.out.println(Arrays.toString(bBag.intersection(cBag).toArray()));        
-        System.out.println("union of bag c and bag d");
+        System.out.println("intersection of bag c and bag d");
         System.out.println(Arrays.toString(cBag.intersection(dBag).toArray()));        
-        System.out.println("union of bag d and bag a");
+        System.out.println("intersection of bag d and bag a");
         System.out.println(Arrays.toString(dBag.intersection(aBag).toArray()));
-
-        System.out.println("union of bag a and bag b");
+    
+        /** testing difference between the bags*/
+        System.out.println("intersection of bag a and bag b");
         System.out.println(Arrays.toString(aBag.difference(bBag).toArray()));       
-        System.out.println("union of bag b and bag c");
+        System.out.println("intersection of bag b and bag c");
         System.out.println(Arrays.toString(bBag.difference(cBag).toArray()));        
-        System.out.println("union of bag c and bag d");
+        System.out.println("intersection of bag c and bag d");
         System.out.println(Arrays.toString(cBag.difference(dBag).toArray()));       
-        System.out.println("union of bag d and bag a");
+        System.out.println("intersection of bag d and bag a");
         System.out.println(Arrays.toString(dBag.difference(aBag).toArray()));
     }
 }
