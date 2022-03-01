@@ -358,15 +358,25 @@ public final class LinkedBag <T> implements BagInterface <T>
          }
 
          //compare to frequency of same item in bag2 and remove lowest frequency to bag
-         if ((bagFreq1 - bagFreq2) > 0)
+         if ((bagFreq1 > bagFreq2))
          {
             for(int k = 0; k < bagFreq2; k++)
             {
                diffBag.remove(bag1[i]);
             }
 
-            tempBag.remove(bag1[i]);
+            tempBag.add(bag1[i]);
          }
+
+         else if((bagFreq1 == bagFreq2) | (bagFreq1 < bagFreq2))
+         {
+            for (int l = 0; l < bagFreq1; l++)
+            {
+               diffBag.remove(bag1[i]);
+            }
+            tempBag.add(bag1[i]);
+         }
+
       }
 
      return diffBag;

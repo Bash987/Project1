@@ -350,7 +350,7 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
             }
 
                 //compare to frequency of same item in bag2 and remove lowest frequency to bag
-            if ((bagFreq1 - bagFreq2) > 0)
+            if ((bagFreq1 > bagFreq2))
             {
                 for(int k = 0; k < bagFreq2; k++)
                 {
@@ -360,7 +360,7 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
                 tempBag.add(this.bag[i]);
             }
 
-            else if (bagFreq1 == bagFreq2)
+            else if ((bagFreq1 == bagFreq2) | (bagFreq1 < bagFreq2))
             {
                 for (int l = 0; l < bagFreq1; l++)
                 {
