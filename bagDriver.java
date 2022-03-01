@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-public class BagDriver
-=======
 import java.io;
 import java.util; 
 public class bagDriver
->>>>>>> a55cd95202fd053dbe39b8881e781e2bf7c73de3
 {
     public static void main(String[] args)
     {
@@ -18,12 +14,9 @@ public class bagDriver
         aBag.add("water");
         aBag.add("cookies");
         aBag.add("pear");
-
-<<<<<<< HEAD
-=======
+        
         System.out.println(Arrays.toString(aBag.toArray()));
 
->>>>>>> a55cd95202fd053dbe39b8881e781e2bf7c73de3
         System.out.println("Creating an empty bag");
         BagInterface<String> bBag = new LinkedBag<>();
 
@@ -32,11 +25,8 @@ public class bagDriver
         bBag.add("tea");
         bBag.add("water"); 
 
-<<<<<<< HEAD
-=======
         System.out.println(Arrays.toString(bBag.toArray())); 
         
->>>>>>> a55cd95202fd053dbe39b8881e781e2bf7c73de3
         System.out.println("Creating an empty bag");
         BagInterface<String> cBag = new ResizableArrayBag<>();
 
@@ -46,13 +36,12 @@ public class bagDriver
         cBag.add("water"); 
         cBag.add("garlic");
         cBag.add("pasta"); 
-<<<<<<< HEAD
+
         cBag.add("flowers");
-=======
+
         cBag.add("flowers"); 
 
         System.out.println(Arrays.toString(cBag.toArray()));
->>>>>>> a55cd95202fd053dbe39b8881e781e2bf7c73de3
 
         System.out.println("Creating an empty bag");
         BagInterface<String> dBag = new ResizableArrayBag<>();
@@ -62,11 +51,8 @@ public class bagDriver
         dBag.add("tea");
         dBag.add("oranges");
 
-<<<<<<< HEAD
         System.out.println(aBag.toArray());
-    }
-}
-=======
+        
         System.out.println(Arrays.toString(dBag.toArray()));      
         System.out.println("union of bag a and bag b");
         System.out.println(Arrays.toString(aBag.union(bBag).toArray()));        
@@ -96,4 +82,3 @@ public class bagDriver
         System.out.println(Arrays.toString(dBag.difference(aBag).toArray()));
     }
 }
->>>>>>> a55cd95202fd053dbe39b8881e781e2bf7c73de3
