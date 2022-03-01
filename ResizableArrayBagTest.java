@@ -82,13 +82,13 @@ public class ResizableArrayBagTest{
 
     } // end testDifference
 
-    private static void testIntersection(BagInterface<String> aBag, BagInterface<String> bag2){
+    private static void testIntersection(BagInterface<String> bag1, BagInterface<String> bag2){
         bag1.intersection(bag2);
         System.out.println("testIntersection ");
         displayBag(bag1);
     } // end testIntersection
 
-    private static void testUnion(BagInterface<String> aBag, BagInterface<String> bag2){
+    private static void testUnion(BagInterface<String> bag1, BagInterface<String> bag2){
         bag1.union(bag2);
         System.out.println("testUnion ");
         displayBag(bag1);
