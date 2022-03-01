@@ -68,7 +68,7 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
         boolean result = true;
         if (isArrayFull())
         {
-            doubleCapacity();;
+            doubleCapacity();
         }
 
         else
@@ -344,7 +344,7 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
             }
 
                 //compare to frequency of same item in bag2 and add lowest frequency to bag
-            if ((bagFreq1 - bagFreq2) > 0)
+            if ((bagFreq1 - bagFreq2) > -1)
             {
                 for(int k = 0; k < bagFreq2; k++)
                 {
