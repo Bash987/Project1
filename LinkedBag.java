@@ -271,7 +271,6 @@ public final class LinkedBag <T> implements BagInterface <T>
     
    public BagInterface<T> union(BagInterface <T> otherBag)
    {
-	   BagInterface<T> unionBag = new LinkedBag<>() ;
         
       if (otherBag == null)
          {
@@ -279,6 +278,8 @@ public final class LinkedBag <T> implements BagInterface <T>
                throw new IllegalStateException("Bag 2 is null");
             }
          }
+
+      BagInterface<T> unionBag = new LinkedBag<>();
 
       //make an array for first bag
       T[] bag1 = this.toArray();
@@ -388,12 +389,19 @@ public final class LinkedBag <T> implements BagInterface <T>
       //prepare arryay to use in loops
       T[] bag1 = this.toArray();
 
+      //add things in our firstbag to our diffBag
+      for (int i = 0; i <this.getCurrentSize(); i++)
+      {
+         diffBag.add(bag1[i]);
+      }
+
+
       //declare variables to get freqency of acertain item in the bags
       int bagFreq1 = 0; //gets frequecy of item in bag 1
       int bagFreq2 = 0; //gets frequecy of item in bag 2
 
-      //gets frequency of a certain item in bag1 and then checks for that in bag2
-      for(int i = 0; i < this.getCurrentSize(); i++) //how to stop this loop from looking at same item in different index? contains???
+      //gets frequency of a certain item in bag1 and then checks for that in bag2 if it is we remove from diffbag
+      for(int i = 0; i < this.getCurrentSize(); i++) 
       {
          if (tempBag.contains(bag1[i]))
              continue;
@@ -411,16 +419,26 @@ public final class LinkedBag <T> implements BagInterface <T>
             bagFreq2 = 0;
          }
 
-         //compare to frequency of same item in bag2 and add lowest frequency to bag
-         if ((bagFreq1 - bagFreq2) > 0)
+         //compare to frequency of same item in bag2 and remove lowest frequency to bag
+         if ((bagFreq1 > bagFreq2))
          {
             for(int k = 0; k < bagFreq2; k++)
             {
-               diffBag.add(bag1[i]);
+               diffBag.remove(bag1[i]);
             }
 
             tempBag.add(bag1[i]);
          }
+
+         else if((bagFreq1 == bagFreq2) | (bagFreq1 < bagFreq2))
+         {
+            for (int l = 0; l < bagFreq1; l++)
+            {
+               diffBag.remove(bag1[i]);
+            }
+            tempBag.add(bag1[i]);
+         }
+
       }
 
      return diffBag;
