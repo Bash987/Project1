@@ -319,6 +319,12 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
         //make an bag to hold items we have already checked for
         BagInterface<T> tempBag = new ResizableArrayBag<>();
 
+        //add things in our firstbag to our diffBag
+        for (int i = 0; i <this.getCurrentSize(); i++)
+        {
+            diffBag.add(this.bag[i]);
+        }
+
         //declare variables to get freqency of acertain item in the bags
         int bagFreq1 = 0; //gets frequecy of item in bag 1
         int bagFreq2 = 0; //gets frequecy of item in bag 2
@@ -343,15 +349,25 @@ public class ResizableArrayBag <T> implements BagInterface <T> {
                 bagFreq2 = 0;
             }
 
-                //compare to frequency of same item in bag2 and add lowest frequency to bag
-            if ((bagFreq1 - bagFreq2) > -1)
+                //compare to frequency of same item in bag2 and remove lowest frequency to bag
+            if ((bagFreq1 - bagFreq2) > 0)
             {
                 for(int k = 0; k < bagFreq2; k++)
                 {
-                    diffBag.add(this.bag[i]);
+                    diffBag.remove(this.bag[i]);
                 }
 
-                diffBag.add(this.bag[i]);
+                tempBag.add(this.bag[i]);
+            }
+
+            else if (bagFreq1 == bagFreq2)
+            {
+                for (int l = 0; l < bagFreq1; l++)
+                {
+                    diffBag.remove(this.bag[i]);
+                }
+
+                tempBag.add(this.bag[i]);
             }
 
         }
