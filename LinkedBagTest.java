@@ -31,5 +31,26 @@ public class LinkedBagTest
         aBag.clear();
         testIsEmpty(aBag, true);
         displayBag(aBag);
+        
+        private static void testDifference(BagInterface<String> bag1, BagInterface<String> bag2){
+            bag1.difference(bag2);
+            System.out.println("testDifference ");
+            displayBag(bag1);
+    
+        } // end testDifference
+    
+        private static void testIntersection(BagInterface<String> aBag, BagInterface<String> bag2){
+            bag1.intersection(bag2);
+            System.out.println("testIntersection ");
+            displayBag(bag1);
+        } // end testIntersection
+    
+        private static void testUnion(BagInterface<String> aBag, BagInterface<String> bag2){
+            bag1.union(bag2);
+            System.out.println("testUnion ");
+            displayBag(bag1);
+        } // end testUnion
+    
+    } // end ResizableArrayBagTest
     }//end main 
 }
