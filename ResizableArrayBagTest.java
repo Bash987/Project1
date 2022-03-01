@@ -88,4 +88,10 @@ public class ResizableArrayBagTest{
         displayBag(bag1);
     } // end testIntersection
 
+    private static void testUnion(BagInterface<String> aBag, BagInterface<String> bag2){
+        bag1.union(bag2);
+        System.out.println("testUnion ");
+        displayBag(bag1);
+    } // end testUnion
+
 } // end ResizableArrayBagTest
