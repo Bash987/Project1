@@ -36,7 +36,6 @@ public class LinkedBagTest
             bag1.difference(bag2);
             System.out.println("testDifference ");
             displayBag(bag1);
-    
         } /** end testDifference*/
     
         private static void testIntersection(BagInterface<String> aBag, BagInterface<String> bag2){
@@ -50,6 +49,6 @@ public class LinkedBagTest
             System.out.println("testUnion ");
             displayBag(bag1);
         } /** end testUnion */
-      /** end ResizableArrayBagTest */
-    } /** end main */
-} 
+      
+    } 
+} /** end LinkedBagTest */
