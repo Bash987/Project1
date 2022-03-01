@@ -17,14 +17,14 @@ public class LinkedBagTest
             testAdd(aBag, contentsOfBag);
 
 
-        //Tests on a bag that is not empty
+        /**Tests on a bag that is not empty*/
         testIsEmpty(aBag, false);
         String[] testStrings2 = {"A", "B", "C", "D", "Z"};
         testFrequency(aBag, testStrings2);
         testContains(aBag, testStrings2);
 
         /**Removing strings*/
-            String[] testStrings3 = {" ", "B", "A", "C", "Z"};
+        String[] testStrings3 = {" ", "B", "A", "C", "Z"};
         testRemove(aBag, testStrings3);
 
         System.out.println("\nClearing the bag:");
@@ -49,8 +49,7 @@ public class LinkedBagTest
             bag1.union(bag2);
             System.out.println("testUnion ");
             displayBag(bag1);
-        } /** end testUnion
-    
-    } // end ResizableArrayBagTest
-    }//end main */
-}
+        } /** end testUnion */
+      /** end ResizableArrayBagTest */
+    } /** end main */
+} 
