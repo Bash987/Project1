@@ -1,7 +1,7 @@
 public class ResizableArrayBagTest{
     public static void main(String[] args){
         /** a bag that is not full */
-        BagInterface<String> aBag = new ResizableArrayBagTest();
+        BagInterface<String> aBag = new ResizableArrayBag<String>();
 
         /** tests on an empty bag */
         testIsFull(aBag, false);
@@ -12,7 +12,7 @@ public class ResizableArrayBagTest{
         testIsFull(aBag, false);
 
         /** a bag that will be full */
-        aBag = new ResizableArrayBagTest<String>(7);
+        aBag = new ResizableArrayBag<String>(7);
         System.out.println("\nA new empty bag:");
 
         /** tests on an empty bag */
@@ -27,8 +27,8 @@ public class ResizableArrayBagTest{
         testIsFull(aBag, false);
 
         /** bag1 and bag2 */
-        BagInterface<String> bag1 = new ResizableArrayBagTest();
-        BagInterface<String> bag2 = new ResizableArrayBagTest();
+        BagInterface<String> bag1 = new ResizableArrayBag<String>();
+        BagInterface<String> bag2 = new ResizableArrayBag<String>();
     } /** end main */
 
     /** tests the method isFull */
