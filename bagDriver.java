@@ -39,9 +39,7 @@ public class bagDriver
         cBag.add("water"); 
         cBag.add("garlic");
         cBag.add("pasta"); 
-
         cBag.add("flowers");
-
         cBag.add("flowers"); 
 
         System.out.println(Arrays.toString(cBag.toArray()));
